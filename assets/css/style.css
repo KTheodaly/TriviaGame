@@ -1,0 +1,19 @@
+body {
+    font-family: 'Bree Serif', serif;
+    color: indigo;
+    background: url("../images/dinos.jpg");
+  }
+
+#bodyBox {
+    background-color:lightseagreen;
+    opacity: 0.8;
+    display: block;
+    margin: auto;
+}
+
+#timeLeft {
+    padding: 20px;
+    background-color: lightseagreen;
+    opacity: .8;
+    display: inline-flex;
+}
