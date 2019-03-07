@@ -3,11 +3,11 @@
 //if right, add to correct answers
 //add a one minute timer that tallies results at 0
 //on click event to tally results for submit answers
-$(document).ready(function () {
+// $(document).ready(function () {
 
-    alert('Welcome to DINO TRIVIA! Choose the correct answers for the best score.');
+//     alert('Welcome to DINO TRIVIA! Choose the correct answers for the best score.');
 
-});
+// });
 
 //set variables
 var correct = 0;
@@ -82,3 +82,5 @@ function stop() {
 }
 
 run();
+
+

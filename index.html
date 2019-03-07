@@ -5,98 +5,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Trivia Game</title>
+    <title>Dinosaur Trivia</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
 </head>
 
 <body>
-
+    <header id="welcome">
+        <h1>Dinosaur Trivia</h1>
+        <p>Choose the correct answers and submit them before the time runs out!</p>
+    </header>
     <div class="container">
-        <nav class="navbar navbar-dark" style="background-color: teal">
-            <span class="navbar-text">
-                <h1>Trivia Game</h1>
-            </span>
-        </nav>
+
         <br>
+        <div id="timeLeft" class="object2">
+            <h4>time remaining:</h4>
+            <div id="timer"></div>
+        </div>
         <br>
         <div id="quiz">
-            <br>
-            <div id="timeLeft" class="object2">
-                <h2>Time Remaining:</h2>
-                <div id="timer"></div>
-            </div>
-            <br>
-        </div>
-        <div id="bodyBox">
-            <br>
-            <h2>Which dinosaur is the most deadly canivore?</h2>
-            <div class="radio" id="right1">
-                <label><input type="radio" name="optradio">Spinosaurus</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="optradio2">Allosaurus</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="optradio3">Velociraptor</label>
 
-                <h2>Which dinosaur has spikes?</h2>
-                <div class="radio">
-                    <label><input type="radio" name="optradio4">Brachiosaurus</label>
+            <div id="bodyBox">
+                <br>
+                <div class="question">
+                    <h4>Which dinosaur is the most deadly canivore?</h4>
+                    <div class="radio" id="right1">
+                        <label><input type="radio" name="optradio">Spinosaurus</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio2">Allosaurus</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio3">Velociraptor</label>
+                    </div>
                 </div>
-                <div class="radio" id="right2">
-                    <label><input type="radio" name="optradio5">Stegosaurus</label>
+                <div class="question">
+                    <h4>Which dinosaur has spikes?</h4>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio4">Brachiosaurus</label>
+                    </div>
+                    <div class="radio" id="right2">
+                        <label><input type="radio" name="optradio5">Stegosaurus</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio6">Giganotosaurus</label>
+                    </div>
                 </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio6">Giganotosaurus</label>
+                <div class="question">
+                    <h4>Which dinosaur can run the fastest?</h4>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio7">Plateosaurus</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio8">Pterosaurs</label>
+                    </div>
+                    <div class="radio" id="right3">
+                        <label><input type="radio" name="optradio9">Dromiceiomimus</label>
+                    </div>
                 </div>
-            </div>
-            <h2>Which dinosaur can run the fastest?</h2>
-            <div class="radio">
-                <label><input type="radio" name="optradio7">Plateosaurus</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="optradio8">Pterosaurs</label>
-            </div>
-            <div class="radio" id="right3">
-                <label><input type="radio" name="optradio9">Dromiceiomimus</label>
-            </div>
-            <h2>Which dinosaur is a herbivore?</h2>
-            <div class="radio" id="right4">
-                <label><input type="radio" name="optradio10">Albertosaurus</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="optradio11">Sigilmassasaurus</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="optradio12">Parvicursor</label>
-            </div>
+                <div class="question">
+                    <h4>Which dinosaur is a herbivore?</h4>
+                    <div class="radio" id="right4">
+                        <label><input type="radio" name="optradio10">Albertosaurus</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio11">Sigilmassasaurus</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio12">Parvicursor</label>
+                    </div>
+                </div>
+                <div class="question">
 
-            <h2>Which dinosaur did not have feathers?</h2>
-            <div class="radio">
-                <label><input type="radio" name="optradio13">Microraptor</label>
-            </div>
-            <div class="radio" id="right5">
-                <label><input type="radio" name="optradio14">Tyrannosaurus Rex</label>
-            </div>
-            <div class="radio">
-                <label><input type="radio" name="optradio15">Avimimus</label>
+                    <h4>Which dinosaur did not have feathers?</h4>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio13">Microraptor</label>
+                    </div>
+                    <div class="radio" id="right5">
+                        <label><input type="radio" name="optradio14">Tyrannosaurus Rex</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio15">Avimimus</label>
+                    </div>
+                </div>
+                <div>
+                    <button id="submit">submit!</button>
+                    <div id="results" class="object3">
+                    </div>
+
+                </div>
+                <br>
+                <br>
             </div>
         </div>
     </div>
-    <br>
-    <br>
-    <div>
-        <button id="submit">Submit Answers</button>
-        <div id="results" class="object3">
-        </div>
-    </div>
-    <br>
-    <br>
-
-
-
 
     <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
         crossorigin='anonymous'></script>
