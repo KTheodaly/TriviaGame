@@ -4,13 +4,121 @@
 //add a 90 second timer that tallies results at 0
 //on click event to tally results for submit answers
 
-$(document).ready(function () {
-    
-    $("#results").empty();
+(function() {
+    function buildQuiz() {
+      const output = [];
+  
+      myQuestions.forEach((currentQuestion, questionNumber) => {
+       
+        const answers = [];
+        
+        for (letter in currentQuestion.answers) {
+          
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+        output.push(
+          `<div class="question"> ${currentQuestion.question} </div>
+          <div class="answers"> ${answers.join("")} </div>`
+        );
+      });
+  
+      quizContainer.innerHTML = output.join("");
+    }
+  
+    function showResults() {
+      
+      const answerContainers = quizContainer.querySelectorAll(".answers");
+  
+      let numCorrect = 0;
+  
+      myQuestions.forEach((currentQuestion, questionNumber) => {
+        
+        const answerContainer = answerContainers[questionNumber];
+        const selector = `input[name=question${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+  
+        // if answer is correct add to correct tally
+        if (userAnswer === currentQuestion.correctAnswer) {
+          numCorrect++;
+  
+          // display it green
+          answerContainers[questionNumber].style.color = "lightgreen";
+        } else {
+          // otherwise make it red
+          answerContainers[questionNumber].style.color = "red";
+        }
+      });
+  
+      // show number of correct answers out of total questions
+      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    }
+  
+    const quizContainer = document.getElementById("quiz");
+    const resultsContainer = document.getElementById("results");
+    const submitButton = document.getElementById("submit");
+    const myQuestions = [
+      {
+        question: "Which dinosaur is the most deadly canivore?",
+        answers: {
+          a: "Spinosaurus",
+          b: "Allosaurus",
+          c: "Velociraptor"
+        },
+        correctAnswer: "a"
+      },
+      {
+        question: "Which dinosaur can run the fastest?",
+        answers: {
+          a: "Plateosaurus",
+          b: "Pterosaurs",
+          c: "Dromiceiomimus",
+        },
+        correctAnswer: "c"
+      },
+      {
+        question: "Which dinosaur has spikes?",
+        answers: {
+          a: "Brachiosaurus",
+          b: "Stegosaurus",
+          c: "Giganotosaurus"
+        },
+        correctAnswer: "b"
+      },
+      {
+        question: "Which dinosaur is a herbivore?",
+        answers: {
+          a: "Albertosaurus",
+          b: "Sigilmassasaurus",
+          c: "Parvicursor"
+        },
+        correctAnswer: "a"
+      },
+      {
+        question: "Which dinosaur did not have feathers?",
+        answers: {
+          a: "Microraptor",
+          b: "Avimimus",
+          c: "Tyrannosaurus Rex"
+          
+        },
+        correctAnswer: "c"
+      }
+    ];
+  
+    // build the quiz on load
+    buildQuiz();
+
+    //if timer runs out display results
 
     $("<div id='timer'>")
 
-    var number = 30;
+    var number = 90;
     var intervalId;
 
     function run() {
@@ -32,63 +140,12 @@ $(document).ready(function () {
     function stop() {
 
         clearInterval(intervalId);
-        score ();
+        showResults ();
     };
 
     run();
 
-    function score() {
-
-        //set variables
-        var correct = 0;
-        var incorrect = 0;
-
-        //if the right answer selected, adjust tally
-
-
-        if (document.getElementsByName('optradio').checked) {
-            correct++;
-        } else {
-            incorrect++;
-            console.log();
-        };
-        if (document.getElementsByName('optradio5').checked) {
-            correct++;
-        } else {
-            incorrect++;
-            console.log();
-        };
-        if (document.getElementsByName('optradio9').checked) {
-            correct++;
-        } else {
-            incorrect++;
-            console.log();
-        };
-        if (document.getElementsByName('optradio10').checked) {
-            correct++;
-        } else {
-            incorrect++;
-            console.log();
-        };
-        if (document.getElementsByName('optradio14').checked) {
-            correct++;
-        } else {
-            incorrect++;
-            console.log();
-        };
-
-        $("#results").append("correct answers: " + correct + "\n" ,"incorrect answers: "+ incorrect);
-
-       // $("question").hide(1000);
-
-    };
-
-    score();
-
-
-    // $("#submit").click(function () {
-    //     stop();
-
-    //     score();
-    // });
-});
+  
+    // on click of submit show results
+    submitButton.addEventListener("click", showResults);
+  })();
