@@ -1,86 +1,94 @@
-//start quiz needs to make body box visible
+//start quiz
 //answer you click needs to compare to correct answer
 //if right, add to correct answers
-//add a one minute timer that tallies results at 0
+//add a 90 second timer that tallies results at 0
 //on click event to tally results for submit answers
-// $(document).ready(function () {
 
-//     alert('Welcome to DINO TRIVIA! Choose the correct answers for the best score.');
+$(document).ready(function () {
+    
+    $("#results").empty();
 
-// });
+    $("<div id='timer'>")
 
-//set variables
-var correct = 0;
-var incorrect = 0;
+    var number = 30;
+    var intervalId;
 
-//if the right answer selected, adjust tally
-
-
-if (document.getElementById('right1').checked) {
-    correct++;
-}
-else {
-    incorrect++;
-    console.log();
-};
-if (document.getElementById('right2').checked) {
-    correct++;
-}
-else {
-    incorrect++;
-    console.log();
-};
-if (document.getElementById('right3').checked) {
-    correct++;
-}
-else {
-    incorrect++;
-    console.log();
-};
-if (document.getElementById('right4').checked) {
-    correct++;
-}
-else {
-    incorrect++;
-    console.log();
-};
-if (document.getElementById('right5').checked) {
-    correct++;
-}
-else {
-    incorrect++;
-    console.log();
-};
-
-//timer
-
-$("<div id='timer'>")
-
-var number = 120;
-var intervalId;
-function run() {
-    clearInterval(intervalId);
-    intervalId = setInterval(decrement, 1000);
-}
-
-function decrement() {
-    number--;
-
-    $("#timer").html("<h2>" + number + "</h2>");
-
-    if (number === 0) {
-
-        stop();
-
-        alert("Time Up! Check your score");
+    function run() {
+        clearInterval(intervalId);
+        intervalId = setInterval(decrement, 1000);
     }
-}
 
-function stop() {
+    function decrement() {
+        number--;
 
-    clearInterval(intervalId);
-}
+        $("#timer").html("<h2>" + number + "</h2>");
 
-run();
+        if (number === 0) {
+
+            stop();
+        }
+    }
+
+    function stop() {
+
+        clearInterval(intervalId);
+        score ();
+    };
+
+    run();
+
+    function score() {
+
+        //set variables
+        var correct = 0;
+        var incorrect = 0;
+
+        //if the right answer selected, adjust tally
 
 
+        if (document.getElementsByName('optradio').checked) {
+            correct++;
+        } else {
+            incorrect++;
+            console.log();
+        };
+        if (document.getElementsByName('optradio5').checked) {
+            correct++;
+        } else {
+            incorrect++;
+            console.log();
+        };
+        if (document.getElementsByName('optradio9').checked) {
+            correct++;
+        } else {
+            incorrect++;
+            console.log();
+        };
+        if (document.getElementsByName('optradio10').checked) {
+            correct++;
+        } else {
+            incorrect++;
+            console.log();
+        };
+        if (document.getElementsByName('optradio14').checked) {
+            correct++;
+        } else {
+            incorrect++;
+            console.log();
+        };
+
+        $("#results").append("correct answers: " + correct + "\n" ,"incorrect answers: "+ incorrect);
+
+       // $("question").hide(1000);
+
+    };
+
+    score();
+
+
+    // $("#submit").click(function () {
+    //     stop();
+
+    //     score();
+    // });
+});
