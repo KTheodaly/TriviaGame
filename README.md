@@ -2,16 +2,16 @@
 
 ## What is this repo project?
 
-* This repo is a fun game called Trivia!
+* This repo is a fun game of dinosaur trivia!
 * The player will have to guess correct to trivia questions in order to win the game.
 
 ## How does it work?
 
-* Create a trivia form with multiple choice or true/false options.
+* There are araays of questions and corresponding correct answers
 
-* The player will have a limited amount of time to finish the quiz. 
+* A decrement function powers the timer 
 
-  * The game ends when the time runs out. The page will reveal the number of questions that players answer correctly and incorrectly.
+  * The answers are submitted when time runs out or if a player clicks submit. The page will reveal the number of questions that players answer correctly and incorrectly.
 
 * Player cannot pick more than one answer per question.
 
