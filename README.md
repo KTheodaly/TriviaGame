@@ -19,7 +19,7 @@
 
 ## Who will use this repo?
 
-* This is for coursework utilizing Javascript and jQuery, but the game is open to anyone who wants to explore the code or play for fun.
+* The purpose is to gain familiarity with utilizing Javascript and jQuery, but the game is open to anyone who wants to explore the code or play for fun.
 
 ## What is the goal of the project?
 
